@@ -1,7 +1,6 @@
 export interface Column<T> {
-  key: keyof T,
-  label: string,
-  sortable?: boolean
+  key: keyof T
+  label: string
 }
 
 export interface User {

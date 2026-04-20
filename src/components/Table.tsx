@@ -1,11 +1,11 @@
-import type { Column, User } from "../types/types"
+import type { Column } from "../types/types"
 
 interface TableProps<T> {
   data: T[]
   columns: Column<T>[]
 }
 
-export function Table({ data, columns }: TableProps<User>){
+export function Table<T>({ data, columns }: TableProps<T>){
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">

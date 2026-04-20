@@ -1,4 +1,4 @@
-import type { User } from "../../types/types";
+import type { User } from "../../../types/types";
 
 export const USERS: User[] = [
   { id: 1, name: 'Alice Dupont', age: 28, city: 'Paris' },
