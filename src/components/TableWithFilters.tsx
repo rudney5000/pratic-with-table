@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import type { Column } from "../types/types"
 
 interface TableWithFiltersProps<T> {
@@ -14,12 +14,15 @@ export function TableWithFilters<T>({ data, columns }: TableWithFiltersProps<T>)
   const [sortKey, setSortKey] = useState<keyof T | null>(null)
   const [sortDir, setSortDir] = useState<SortDir>(null)
 
-  const filteredData = filterValue === '' 
+  const filteredData = useMemo(() => 
+    filterValue === '' 
     ? data 
     : data.filter((row) => 
       columns.some((col) => 
-        String(row[col.key]).toLocaleLowerCase().includes(filterValue.toLocaleLowerCase())
+        String(row[col.key]).toLowerCase().includes(filterValue.toLowerCase())
       )
+    ),
+    [data, filterValue, columns]  
   )
   
     const handleSort = (key: keyof T) => {
@@ -36,19 +39,21 @@ export function TableWithFilters<T>({ data, columns }: TableWithFiltersProps<T>)
       }
     }
   
-    const sortedData = [...filteredData].sort((a, b) => {
+    const sortedData = useMemo(() => 
+      
+      [...filteredData].sort((a, b) => {
   
-      if(!sortKey || !sortDir) return 0
-  
-      const aVal = a[sortKey] as string | number
-      const bVal = b[sortKey] as string | number
-  
-      if(aVal === bVal) return 0
-  
-      const modifier = sortDir === 'asc' ? 1 : -1
-      return aVal > bVal ? modifier : -modifier
-  
-    })
+        if(!sortKey || !sortDir) return 0
+    
+        const aVal = a[sortKey] as string | number
+        const bVal = b[sortKey] as string | number
+    
+        if(aVal === bVal) return 0
+    
+        const modifier = sortDir === 'asc' ? 1 : -1
+        return aVal > bVal ? modifier : -modifier
+      }),
+    [filteredData, sortKey, sortDir])
 
   return (
     <div className="relative overflow-x-auto">

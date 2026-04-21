@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import type { Column } from "../types/types"
 
 interface TableWithSortableProps<T> {
@@ -28,19 +28,21 @@ export function TableWithSortable<T>({ data, columns }: TableWithSortableProps<T
     }
   }
 
-  const sortedData = [...data].sort((a, b) => {
+  const sortedData = useMemo(() => 
+        
+    [...data].sort((a, b) => {
 
-    if(!sortKey || !sortDir) return 0
-
-    const aVal = a[sortKey] as string | number
-    const bVal = b[sortKey] as string | number
-
-    if(aVal === bVal) return 0
-
-    const modifier = sortDir === 'asc' ? 1 : -1
-    return aVal > bVal ? modifier : -modifier
-
-  })
+      if(!sortKey || !sortDir) return 0
+  
+      const aVal = a[sortKey] as string | number
+      const bVal = b[sortKey] as string | number
+  
+      if(aVal === bVal) return 0
+  
+      const modifier = sortDir === 'asc' ? 1 : -1
+      return aVal > bVal ? modifier : -modifier
+    }),
+  [data, sortKey, sortDir])
 
   return (
     <div className="relative overflow-x-auto">
