@@ -13,4 +13,4 @@ export function generateUsers(count: number): User[] {
   }))
 }
 
-export const USERS = generateUsers(30_000)
+export const GENERATEDUSERS = generateUsers(30_000)

@@ -10,3 +10,5 @@ export interface User {
   age: number
   city: string
 }
+
+export type SortDir = 'asc' | 'desc' | null
