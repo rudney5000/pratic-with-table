@@ -1,4 +1,5 @@
 import { Table } from './components/Table'
+import { TableWithExpandedRows } from './components/TableWithExpandedRows'
 import { TableWithFilters } from './components/TableWithFilters'
 import { TableWithPagination } from './components/TableWithPagination'
 import { TableWithSelection } from './components/TableWithSelection'
@@ -6,6 +7,7 @@ import { TableWithSortable } from './components/TableWithSortable'
 import { GENERATEDUSERS } from './data/data'
 import { columnsBasicTable } from './utils/constants/BasicTable/columns'
 import { USERS } from './utils/constants/BasicTable/users'
+import { columnsTableWithExpandedRows } from './utils/constants/TablewithExpandedRows/columns'
 import { columnsTableWithFilters } from './utils/constants/TableWithFilters/columns'
 import { columnsTableWithPagination } from './utils/constants/TableWithPagination/columns'
 import { columnsTableWithSelection } from './utils/constants/TableWithSelection/columns'
@@ -39,6 +41,11 @@ function App() {
       <TableWithPagination 
         data={GENERATEDUSERS}
         columns={columnsTableWithPagination}
+      />
+      <div> Table with ExpandedRows</div>
+      <TableWithExpandedRows 
+        data={USERS}
+        columns={columnsTableWithExpandedRows}
       />
     </>
   )
