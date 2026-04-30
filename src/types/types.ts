@@ -8,7 +8,8 @@ export interface User {
   id: number
   name: string
   age: number
-  city: string
+  city: string,
+  children?: User[]
 }
 
 export type SortDir = 'asc' | 'desc' | null

@@ -1,4 +1,5 @@
 import { Table } from './components/Table'
+import { TableWithExpandedChildrenRows } from './components/TableWithExpandedChildrenRows'
 import { TableWithExpandedRows } from './components/TableWithExpandedRows'
 import { TableWithFilters } from './components/TableWithFilters'
 import { TableWithPagination } from './components/TableWithPagination'
@@ -7,6 +8,8 @@ import { TableWithSortable } from './components/TableWithSortable'
 import { GENERATEDUSERS } from './data/data'
 import { columnsBasicTable } from './utils/constants/BasicTable/columns'
 import { USERS } from './utils/constants/BasicTable/users'
+import { columnsTableWithExpandedChildrenRows } from './utils/constants/TableWithExpandedChildrenRows/columns'
+import { USERSWITHCHILDREN } from './utils/constants/TableWithExpandedChildrenRows/users'
 import { columnsTableWithExpandedRows } from './utils/constants/TablewithExpandedRows/columns'
 import { columnsTableWithFilters } from './utils/constants/TableWithFilters/columns'
 import { columnsTableWithPagination } from './utils/constants/TableWithPagination/columns'
@@ -46,6 +49,11 @@ function App() {
       <TableWithExpandedRows 
         data={USERS}
         columns={columnsTableWithExpandedRows}
+      />
+      <div> Table with ExpandedChildrenRows</div>
+      <TableWithExpandedChildrenRows
+        data={USERSWITHCHILDREN}
+        columns={columnsTableWithExpandedChildrenRows}
       />
     </>
   )
