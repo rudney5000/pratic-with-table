@@ -1,4 +1,5 @@
 import { Table } from './components/Table'
+import { TableWithDragAndDrop } from './components/TableWithDragAndDrop'
 import { TableWithExpandedChildrenRows } from './components/TableWithExpandedChildrenRows'
 import { TableWithExpandedRows } from './components/TableWithExpandedRows'
 import { TableWithFilters } from './components/TableWithFilters'
@@ -8,6 +9,7 @@ import { TableWithSortable } from './components/TableWithSortable'
 import { GENERATEDUSERS } from './data/data'
 import { columnsBasicTable } from './utils/constants/BasicTable/columns'
 import { USERS } from './utils/constants/BasicTable/users'
+import { columnsTableWithDragAndDrop } from './utils/constants/TableWithDragAndDrop/columns'
 import { columnsTableWithExpandedChildrenRows } from './utils/constants/TableWithExpandedChildrenRows/columns'
 import { USERSWITHCHILDREN } from './utils/constants/TableWithExpandedChildrenRows/users'
 import { columnsTableWithExpandedRows } from './utils/constants/TablewithExpandedRows/columns'
@@ -54,6 +56,11 @@ function App() {
       <TableWithExpandedChildrenRows
         data={USERSWITHCHILDREN}
         columns={columnsTableWithExpandedChildrenRows}
+      />
+      <div> Table with dnd </div>
+      <TableWithDragAndDrop
+        data={USERS}
+        columns={columnsTableWithDragAndDrop}
       />
     </>
   )
