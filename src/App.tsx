@@ -1,5 +1,6 @@
 import { Table } from './components/Table'
 import { TableWithDragAndDrop } from './components/TableWithDragAndDrop'
+import { TableWithDragAndDropColumns } from './components/TableWithDragAndDropColumns'
 import { TableWithExpandedChildrenRows } from './components/TableWithExpandedChildrenRows'
 import { TableWithExpandedRows } from './components/TableWithExpandedRows'
 import { TableWithFilters } from './components/TableWithFilters'
@@ -10,6 +11,7 @@ import { GENERATEDUSERS } from './data/data'
 import { columnsBasicTable } from './utils/constants/BasicTable/columns'
 import { USERS } from './utils/constants/BasicTable/users'
 import { columnsTableWithDragAndDrop } from './utils/constants/TableWithDragAndDrop/columns'
+import { columnsTableWithDragAndDropColumns } from './utils/constants/TableWithDragAndDropColumns/columns'
 import { columnsTableWithExpandedChildrenRows } from './utils/constants/TableWithExpandedChildrenRows/columns'
 import { USERSWITHCHILDREN } from './utils/constants/TableWithExpandedChildrenRows/users'
 import { columnsTableWithExpandedRows } from './utils/constants/TablewithExpandedRows/columns'
@@ -61,6 +63,11 @@ function App() {
       <TableWithDragAndDrop
         data={USERS}
         columns={columnsTableWithDragAndDrop}
+      />
+      <div> Table with dnd columns</div>
+      <TableWithDragAndDropColumns
+        data={USERS}
+        columns={columnsTableWithDragAndDropColumns}
       />
     </>
   )
