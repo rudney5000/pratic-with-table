@@ -7,6 +7,7 @@ import { TableWithFilters } from './components/TableWithFilters'
 import { TableWithPagination } from './components/TableWithPagination'
 import { TableWithSelection } from './components/TableWithSelection'
 import { TableWithSortable } from './components/TableWithSortable'
+import { TableWithVirtualisation } from './components/TableWithVirtualisation'
 import { GENERATEDUSERS } from './data/data'
 import { columnsBasicTable } from './utils/constants/BasicTable/columns'
 import { USERS } from './utils/constants/BasicTable/users'
@@ -67,6 +68,11 @@ function App() {
       <div> Table with dnd columns</div>
       <TableWithDragAndDropColumns
         data={USERS}
+        columns={columnsTableWithDragAndDropColumns}
+      />
+      <div> Table with virtualisation</div>
+      <TableWithVirtualisation
+        data={GENERATEDUSERS}
         columns={columnsTableWithDragAndDropColumns}
       />
     </>
